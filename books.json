@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "J.K. Rowling",
+        "image": ".books/book1.jpg'"
+    },
+    {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "image": ".books/hobbit.jpg"
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "image": "url_to_1984_image.jpg"
+    }
+]
