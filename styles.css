@@ -1,0 +1,334 @@
+:root {
+    --yellow: #FDDA0D;
+    --pale-yellow: #FFF8DC;
+    --black: #000;
+    --white: #fff;
+    --dark: #1B1212;
+    --offwhite: #FAF9F6;
+    --darkyellow: #F2CD60;
+    --red: rgba(255, 0, 0, 0.712);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar {
+    background: var(--black);
+    height: 100px;
+    padding: 0.5rem calc((100vw - 1200px) / 2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar__logo {
+    color: var(--white);
+    text-decoration: none;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+}
+
+.navbar__logo:hover {
+    color: var(--yellow);
+    text-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.8), 
+        0 0 30px rgba(255, 255, 255, 0.6), 
+        0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+
+.navbar__link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0rem 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar__link:hover {
+    color: var(--yellow);
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 100px);
+        position: absolute;
+        width: 100%;
+        top: -1000px;
+        transition: top 0.3s ease-in-out;
+        opacity: 0;
+        background: var(--black);
+    }
+
+    .navbar__menu.active {
+        top: 60px;
+        opacity: 1;
+        z-index: 99;
+        height: 100vh;
+        font-size: 1.5rem;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        display: block;
+        background: var(--white);
+        cursor: pointer;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 15px;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+}
+
+.bb-home {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./books/alexis-brown-omeaHbEFlN4-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+.bb-home__content {
+    color: var(--white);
+    padding: 2rem; 
+    text-align: center;
+    max-width: 90%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border-radius: 8px; 
+}
+
+.bb-home__content h1 {
+    font-size: 6vw;
+    text-transform: uppercase;
+    -webkit-text-stroke: 3px var(--black); 
+    color: var(--white);
+    text-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.7), 
+        0 0 30px rgba(0, 0, 0, 0.6), 
+        0 0 10px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+   
+}
+
+
+.bb-p {
+    font-size:2em;
+}
+
+
+.form-container h1 {
+    margin-bottom: 20px;
+    font-size: 4vw;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 4px;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--offwhite);
+}
+@media screen and (max-width: 768px) {
+    .form-container {
+        max-width: 60%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--offwhite);
+    color: var(--black);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.countdown-item {
+    margin: 0 10px;
+    padding: 10px;
+    background-color: var(--darkyellow);
+    color: var(--black);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(var(--black), .2);
+    font-weight: bold;
+}
+
+.countdown-item div {
+    font-size: 2rem;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.topline {
+    font-size: 5em;
+    text-align: center;
+    color: var(--dark);
+}
+
+.featured__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--pale-yellow);
+    padding: 1rem;
+}
+
+.featured__heading {
+    font-size: 2.5rem;
+    color: var(--dark);
+}
+
+.features__book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.features__image {
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.features__text {
+    max-width: 600px;
+}
+
+.book-list-background {
+    background-color: var(--darkyellow);
+    padding: 2rem;
+    text-align: center;
+}
+
+#book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.book {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    width: 150px;
+}
+
+.book-cover {
+    width: 100%;
+    height: auto;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.book-author {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+#quote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    max-width: 100%;
+    text-align: center;}
+.quoteline{
+    height: 1px;
+    width: 20rem;
+    display: block;
+    background: var(--black);
+    margin: 2rem auto;
+
+}
+.quote-background {
+    color: var(--black);
+    background-color: var(--pale-yellow);
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    max-width: 100%;
+    text-align: center;
+}
+
+#author {
+    font-size: 1rem;
+    font-weight: bold;
+
+}

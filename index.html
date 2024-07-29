@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <title>BOOK BANTER</title>
+</head>
+<body>
+    <!-- Nav Bar Section -->
+    <nav class="navbar">
+        <a href="/" class="navbar__logo" id="navbar__logo">BOOK BANTER</a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="navbar__menu">
+            <a href="#home" class="navbar__link">Home</a>
+            <a href="#book-of-the-month" class="navbar__link">Book of the Month</a>
+            <a href="#history" class="navbar__link">History</a>
+            <a href="#quotes" class="navbar__link">Quotes</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section id="home" class="bb-home">
+        <div class="bb-home__content">
+            <h1>Book Banter</h1>
+            <p class="bb-p">JOIN THE BEST BOOK CLUB EVER FOR $5</p>
+            <div class="form-container">
+                <form method="get">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" autocomplete="family-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <button type="submit">Sign Up!</button>
+                </form>
+            </div>
+            <div class="countdown-title">Countdown to Next Book</div>
+            <div id="countdown"></div> 
+        </div>
+    </section>
+    
+
+    <!-- Featured Section -->
+    <section id="book-of-the-month" class="featured">
+        <div class="featured__content">
+            <p class="topline"><i class="fa fa-camera-retro fa-4x"></i> JULY EDITION</p>
+            <h1 class="featured__heading">SUMMER READING</h1>
+            <div class="features__book">
+                <img src="./books/booksummer.jpg" alt="book of the month" class="features__image">
+                <div class="features__text">
+                    <h2>JUST FOR THE SUMMER</h2>
+                    <p>Just for the Summer is a romantic comedy novel by Abby Jimenez about Emma and Justin, two people who share a curse that causes their dates to find their soulmates in later relationships. To break the curse, they decide to date for four dates, share a kiss, and then break up. However, things don't go as planned.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- History Section -->
+ <section id="history" class="book-list-background">
+        <div class="topline">Book List</div>
+        <div id="book-list"></div>
+</section>
+ <!-- Quote Section -->
+<section id="quotes" class="quote-background">
+        <div id="quote"></div><div class="quoteline"></div>
+        <div id="book"></div>
+        <div id="author"></div>
+ 
+    </div>
+
+</section>
+    <script src="app.js"></script>
+</body>
+</html>
