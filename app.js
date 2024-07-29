@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Toggle mobile menu
+ //mobile menu
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.navbar__menu');
     const body = document.querySelector('body');
@@ -12,13 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     menu.addEventListener('click', mobileMenu);
 
-    // Prevent form submission
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-    });
-
-    // Populate book list
+    // book list
     const bookList = document.getElementById('book-list');
     const books = [
         { title: "Good Girl's Guide to Murder", author: 'Holly Jackson', cover: 'books/guide1.jpg' },
@@ -40,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         bookList.appendChild(bookItem);
     });
 
-    // Countdown to next book
-    const targetDate = new Date('2024-12-31T00:00:00').getTime(); 
+    // countdown
+        const targetDate = new Date('2024-09-01T00:00:00').getTime(); 
     const countdown = setInterval(function() {
         const now = new Date().getTime();
         const distance = targetDate - now;
@@ -78,19 +72,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
 
-  
+  // quote
 async function fetchQuote() {
     try {
         const response = await fetch('https://api.quotable.io/random');
         
-        // Check if the response status is OK (200-299)
+     
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
         
-        // Ensure data contains the expected fields
+        
         if (data.content && data.author) {
             document.getElementById('quote').innerHTML = data.content;
             document.getElementById('book').innerHTML = data.tags ? data.tags.join(', ') : 'N/A';
