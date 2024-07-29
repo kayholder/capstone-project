@@ -121,7 +121,7 @@
     padding: 2rem; 
     text-align: center;
     max-width: 90%;
-    background-color: rgba(0, 0, 0, 0.6); 
+    background-color: rgba(var(--black),0.6); 
     border-radius: 8px; 
 }
 
@@ -227,6 +227,14 @@ button[type="submit"]:hover {
     margin-top: 5px;
 }
 
+@media screen and (max-width: 768px) {
+    #countdown{
+        display:none;
+    }
+    .countdown-title {
+        display: none;
+    }
+}
 .topline {
     font-size: 5em;
     text-align: center;
@@ -305,9 +313,12 @@ button[type="submit"]:hover {
 #quote {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
-    margin-top: 20px;
-    max-width: 100%;
-    text-align: center;}
+    font-style: italic;
+    max-width: 90%;
+    text-align: center;
+    padding:10px;
+}
+
 .quoteline{
     height: 1px;
     width: 20rem;
@@ -330,5 +341,28 @@ button[type="submit"]:hover {
 #author {
     font-size: 1rem;
     font-weight: bold;
+    padding:70px;
 
+}
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-size:1rem;
+    padding: 30px;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+footer p {
+    margin: 0;
+}
+
+.copyright {
+    font-family: Arial,
+         "Helvetica Neue",
+         Helvetica,
+         sans-serif;
 }
