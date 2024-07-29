@@ -5,6 +5,8 @@
     --white: #fff;
     --dark: #1B1212;
     --offwhite: #FAF9F6;
+    --darkyellow: #F2CD60;
+    --red: rgba(255, 0, 0, 0.712);
 }
 
 * {
@@ -38,6 +40,15 @@ body {
     padding-left: 1rem;
     font-size: 1.5rem;
 }
+
+.navbar__logo:hover {
+    color: var(--yellow);
+    text-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.8), 
+        0 0 30px rgba(255, 255, 255, 0.6), 
+        0 0 40px rgba(255, 255, 255, 0.4);
+}
+
 
 .navbar__link {
     color: var(--white);
@@ -98,49 +109,48 @@ body {
 
 .bb-home {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./books/alexis-brown-omeaHbEFlN4-unsplash.jpg');
-    opacity: 0.8;
-    height: 100vh;
     background-position: center;
     background-size: cover;
-    padding: 0.5rem calc((100vw - 1200px) / 2);
+    height: 100vh;
+    padding: 2rem 1rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin-top: 100px;
+    overflow: hidden;
 }
 
 .bb-home__content {
     color: var(--white);
-    padding: 3rem 1rem;
-    line-height: 1;
+    padding: 2rem; 
+    text-align: center;
+    max-width: 90%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border-radius: 8px; 
 }
 
 .bb-home__content h1 {
-    font-size: 11vw;
+    font-size: 6vw;
     text-transform: uppercase;
-    -webkit-text-stroke: 4px var(--black);
+    -webkit-text-stroke: 3px var(--black); 
+    color: var(--white);
+    text-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.7), 
+        0 0 30px rgba(0, 0, 0, 0.6), 
+        0 0 10px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+   
 }
 
-.bb-home__content p {
-    font-size: 2.5vw;
-    text-transform: uppercase;
-    padding: 40px 0;
+
+.bb-p {
+    font-size:2em;
 }
 
-.form-container {
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
-    color: var(--black);
-}
 
 .form-container h1 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 4vw;
     text-align: center;
 }
 
@@ -176,9 +186,8 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: var(--yellow);
+    background-color: var(--offwhite);
 }
-
 @media screen and (max-width: 768px) {
     .form-container {
         max-width: 60%;
@@ -186,159 +195,137 @@ button[type="submit"]:hover {
         padding: 15px;
     }
 }
-
-.featured {
-    padding: 2rem;
-    background-color: var(--pale-yellow);
-    height: 80vh;
-}
-
-.featured__content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.featured__monthly {
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--offwhite);
+    color: var(--black);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    max-width: 100%;
     text-align: center;
 }
 
+.countdown-item {
+    margin: 0 10px;
+    padding: 10px;
+    background-color: var(--darkyellow);
+    color: var(--black);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(var(--black), .2);
+    font-weight: bold;
+}
+
+.countdown-item div {
+    font-size: 2rem;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
 .topline {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 5em;
+    text-align: center;
+    color: var(--dark);
+}
+
+.featured__content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    text-align: center;
+    background-color: var(--pale-yellow);
+    padding: 1rem;
 }
 
 .featured__heading {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: var(--dark);
 }
 
 .features__book {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .features__image {
-    max-width: 150px;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-}
-
-.features__image:hover {
-    transform: scale(1.1);
+    max-width: 200px;
+    margin-right: 20px;
 }
 
 .features__text {
     max-width: 600px;
-    text-align: left;
 }
 
-.features__text h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.features__text p {
-    font-size: 1rem;
-}
-
-@media screen and (max-width: 768px) {
-    .features__book {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .features__image {
-        max-width: 100px;
-    }
-
-    .features__text {
-        text-align: center;
-    }
+.book-list-background {
+    background-color: var(--darkyellow);
+    padding: 2rem;
+    text-align: center;
 }
 
 #book-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     gap: 20px;
-    background: #FEF9FF;
-    padding:10px;
+    margin-top: 20px;
 }
 
 .book {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    max-width: 200px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-.book:hover {
-    transform: scale(1.05);
-}
-
-
-.book img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-
-.book h2 {
-    font-size: 1.2em;
-    margin: 10px 0 5px;
-    color: #333;
-}
-
-.book p {
-    font-size: 0.9em;
-    color: #777;
-}
-
-#countdown {
-    font-size: 24px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
     text-align: center;
-    margin-top: 50px;
+    width: 150px;
 }
 
-
-
-#quote-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.book-cover {
+    width: 100%;
+    height: auto;
 }
 
-#quote-container div {
+.book-title {
+    font-size: 1.1rem;
     margin: 10px 0;
 }
 
-#quote {
-    font-size: 1.5em;
-    font-weight: bold;
+.book-author {
+    color: var(--dark);
+    margin-bottom: 10px;
 }
 
-#book, #author {
-    font-size: 1.2em;
-    color: #555;
+.quote-container {
+    background: var(--offwhite);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#length, #words, #createdAt, #updatedAt {
-    font-size: 0.9em;
-    color: #777;
+.quote-container p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.quote-container span {
+    display: block;
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.error {
+    color: var(--red);
 }

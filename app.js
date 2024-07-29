@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', function() {
     // Toggle mobile menu
     const menu = document.querySelector('#mobile-menu');
@@ -22,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Populate book list
     const bookList = document.getElementById('book-list');
     const books = [
-        { title: 'The Silent Patient', author: 'Alex Michaelides', cover: 'books/book1.jpg' },
-        { title: 'Where the Crawdads Sing', author: 'Delia Owens', cover: 'books/book2.jpg' },
-        { title: 'The Testaments', author: 'Margaret Atwood', cover: 'books/book3.jpg' },
-        { title: 'Normal People', author: 'Sally Rooney', cover: 'books/book4.jpg' },
-        { title: 'Educated', author: 'Tara Westover', cover: 'books/book5.jpg' },
-        { title: 'Circe', author: 'Madeline Miller', cover: 'books/book6.jpg' }
+        { title: "Good Girl's Guide to Murder", author: 'Holly Jackson', cover: 'books/guide1.jpg' },
+        { title: 'The Hobbit', author: 'J. R. R. Tolkien', cover: 'books/hobbit.jpg' },
+        { title: "Harry Potter and the Sorcerer's Stone", author: 'JK Rowling', cover: 'books/hpbooks.jpg' },
+        { title: 'We Hunt the Flame', author: 'Hafsah Faizal', cover: 'books/hung.jpg' },
+        { title: 'Divine Rivals', author: 'Rebecca Ross', cover: 'books/divinerivals.jpg' },
+        { title: 'Yellowface', author: 'RF Kuag', cover: 'books/yellowface.jpg' }
     ];
 
     books.forEach(function(book) {
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Countdown to next book
-    const targetDate = new Date('2024-08-01T00:00:00').getTime();
+    const targetDate = new Date('2024-12-31T00:00:00').getTime(); 
     const countdown = setInterval(function() {
         const now = new Date().getTime();
         const distance = targetDate - now;
@@ -52,12 +51,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById('countdown').innerHTML = `
-            <div>${days}d</div>
-            <div>${hours}h</div>
-            <div>${minutes}m</div>
-            <div>${seconds}s</div>
+        let countdownHTML = `
+            <div class="countdown-item">
+                <div>${days}</div>
+                <span>Days</span>
+            </div>
+            <div class="countdown-item">
+                <div>${hours}</div>
+                <span>Hours</span>
+            </div>
+            <div class="countdown-item">
+                <div>${minutes}</div>
+                <span>Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <div>${seconds}</div>
+                <span>Seconds</span>
+            </div>
         `;
+
+        document.getElementById('countdown').innerHTML = countdownHTML;
 
         if (distance < 0) {
             clearInterval(countdown);
@@ -65,30 +78,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
 
-    // Fetch random quote from the database
-    const quoteContainer = document.getElementById('quote-container');
-    const quoteElement = document.getElementById('quote');
-    const bookElement = document.getElementById('book');
-    const authorElement = document.getElementById('author');
-    const lengthElement = document.getElementById('length');
-    const wordsElement = document.getElementById('words');
-    const createdAtElement = document.getElementById('createdAt');
-    const updatedAtElement = document.getElementById('updatedAt');
-
-    fetch('/api/random/quote-from-db')
-        .then(response => response.json())
-        .then(data => {
-            quoteElement.textContent = `"${data.quote}"`;
-            bookElement.textContent = `Book: ${data.book}`;
-            authorElement.textContent = `Author: ${data.author}`;
-            lengthElement.textContent = `Length: ${data.length} characters`;
-            wordsElement.textContent = `Words: ${data.words}`;
-            createdAtElement.textContent = `First Published: ${new Date(data.createdAt).toLocaleString()}`;
-            updatedAtElement.textContent = `Last Updated: ${new Date(data.updatedAt).toLocaleString()}`;
-        })
-        .catch(error => {
-            quoteContainer.textContent = 'Error fetching quote';
-            console.error('Error:', error);
-        });
+    async function fetchQuote() {
+        try {
+            const response = await fetch('https://api.quotable.io/random');
+            
+            // Check if the response status is OK (200-299)
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            
+            // Ensure data contains the expected fields
+            if (data.content && data.author) {
+                document.getElementById('quote').innerHTML = data.content;
+                document.getElementById('book').innerHTML = data.tags ? data.tags.join(', ') : 'N/A';
+                document.getElementById('author').innerHTML = `- ${data.author}`;
+                document.getElementById('length').innerHTML = `Length: ${data.length || 'N/A'}`;
+                document.getElementById('words').innerHTML = `Words: ${data.words || 'N/A'}`;
+                document.getElementById('createdAt').innerHTML = `Created: ${data.createdAt || 'N/A'}`;
+                document.getElementById('updatedAt').innerHTML = `Updated: ${data.updatedAt || 'N/A'}`;
+            } else {
+                throw new Error('Invalid data structure');
+            }
+            
+        } catch (error) {
+            console.error('Error fetching the quote:', error);
+            document.getElementById('quote').innerHTML = 'Could not fetch quote. Please try again later.';
+        }
+    }
+    
+    fetchQuote();
 });
-</script>
