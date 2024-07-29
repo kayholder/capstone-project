@@ -16,10 +16,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: #f4f4f4;
-    margin: 0;
-}
 
 .navbar {
     background: var(--black);
@@ -306,26 +302,33 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-.quote-container {
-    background: var(--offwhite);
-    border-radius: 8px;
-    padding: 20px;
+#quote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.quote-container p {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.quote-container span {
+    max-width: 100%;
+    text-align: center;}
+.quoteline{
+    height: 1px;
+    width: 20rem;
     display: block;
-    font-size: 1rem;
-    color: var(--dark);
+    background: var(--black);
+    margin: 2rem auto;
+
+}
+.quote-background {
+    color: var(--black);
+    background-color: var(--pale-yellow);
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    max-width: 100%;
+    text-align: center;
 }
 
-.error {
-    color: var(--red);
+#author {
+    font-size: 1rem;
+    font-weight: bold;
+
 }

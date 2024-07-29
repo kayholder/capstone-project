@@ -78,35 +78,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
 
-    async function fetchQuote() {
-        try {
-            const response = await fetch('https://api.quotable.io/random');
-            
-            // Check if the response status is OK (200-299)
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            
-            // Ensure data contains the expected fields
-            if (data.content && data.author) {
-                document.getElementById('quote').innerHTML = data.content;
-                document.getElementById('book').innerHTML = data.tags ? data.tags.join(', ') : 'N/A';
-                document.getElementById('author').innerHTML = `- ${data.author}`;
-                document.getElementById('length').innerHTML = `Length: ${data.length || 'N/A'}`;
-                document.getElementById('words').innerHTML = `Words: ${data.words || 'N/A'}`;
-                document.getElementById('createdAt').innerHTML = `Created: ${data.createdAt || 'N/A'}`;
-                document.getElementById('updatedAt').innerHTML = `Updated: ${data.updatedAt || 'N/A'}`;
-            } else {
-                throw new Error('Invalid data structure');
-            }
-            
-        } catch (error) {
-            console.error('Error fetching the quote:', error);
-            document.getElementById('quote').innerHTML = 'Could not fetch quote. Please try again later.';
+  
+async function fetchQuote() {
+    try {
+        const response = await fetch('https://api.quotable.io/random');
+        
+        // Check if the response status is OK (200-299)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }
+
+        const data = await response.json();
+        
+        // Ensure data contains the expected fields
+        if (data.content && data.author) {
+            document.getElementById('quote').innerHTML = data.content;
+            document.getElementById('book').innerHTML = data.tags ? data.tags.join(', ') : 'N/A';
+            document.getElementById('author').innerHTML = `- ${data.author}`;
     
-    fetchQuote();
+        } else {
+            throw new Error('Invalid data structure');
+        }
+        
+    } catch (error) {
+        console.error('Error fetching the quote:', error);
+        document.getElementById('quote').innerHTML = 'Could not fetch quote. Please try again later.';
+    }
+}
+
+fetchQuote();
 });
+
+
