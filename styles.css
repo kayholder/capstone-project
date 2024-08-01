@@ -108,7 +108,7 @@
     background-position: center;
     background-size: cover;
     height: 100vh;
-    padding: 2rem 1rem;
+    padding: 10rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,9 +131,7 @@
     -webkit-text-stroke: 3px var(--black); 
     color: var(--white);
     text-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.7), 
-        0 0 30px rgba(0, 0, 0, 0.6), 
-        0 0 10px rgba(0, 0, 0, 0.6);
+        1px 1px 3px rgba(0, 0, 0, 0.7);
     font-weight: 700;
    
 }
