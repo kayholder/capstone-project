@@ -130,7 +130,8 @@ form.addEventListener("submit", handleFormSubmit);
 async function handleFormSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
-  const apiKey = process.env.PANTRY_KEY;
+  //const apiKey = process.env.PANTRY_KEY;
+  const apiKey="ed5e1e39-f6eb-4084-a640-4c9f4ac4ffde"
   const url = `https://getpantry.cloud/apiv1/pantry/${apiKey}/basket/BB`
   const formData = new FormData(form);
   var myHeaders = new Headers();
