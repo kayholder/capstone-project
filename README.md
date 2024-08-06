@@ -18,10 +18,11 @@ I know I was only supposed to have three total, but since I had some extra time 
 - However, you will only be able to see the stored data AFTER you have submitted the information being asked for on the form.
 
 ### Checking Methods
-- I checked if my website works in mobile view by playing with the size of my screen through inspect. I also have a mac and a windows so I was able to check my site on both devices. I also checked my project in firefox to see how it displayed there. 
+- I checked if my website works in mobile view by playing with the size of my screen through inspect. I also have a mac and a windows so I was able to check my site on both devices. 
 - Others assisted by also viewing the website on their device to see how it would look on their end.
-- I also checked my project by right clicking index.html and clicking on "live server" this extension was crucial in helping me check my website continuously. It gave instant live feedback on my project. 
-- In order to see if my pantry key worked like it should. I went into inspect and clicked "network" and there it would give me an error code if there was an error in the form being submitted or it would give me a 200 code if it were correct.
+- I checked my project by right clicking index.html and clicking on "live server" this extension was crucial in helping me check my website continuously. It gave instant live feedback on my project. 
+- In order to see if my pantry key/code worked like it should. I went into inspect and clicked "network" and there it would give me a 400 error code or it would give me a 200 code if it processed.
+
 
 
 
